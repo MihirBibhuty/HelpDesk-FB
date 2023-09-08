@@ -4,9 +4,9 @@ import React, { createContext, useState } from "react";
 import UserContext from "./UserContext";
 
 const UserState = ({ children }) => {
-    const [user, setUser] = useState(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null);
-    const [fbUser, setFbUser] = useState(localStorage.getItem("fbUser") ? JSON.parse(localStorage.getItem("fbUser")) : null);
-    const [messagesDataBase, setMessagesDataBase] = useState(localStorage.getItem("messagesDataBase") ? JSON.parse(localStorage.getItem("messagesDataBase")) : null);
+    const [user, setUser] = useState(typeof window !== "undefined" && (localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null));
+    const [fbUser, setFbUser] = useState(typeof window !== "undefined" && (localStorage.getItem("fbUser") ? JSON.parse(localStorage.getItem("fbUser")) : null));
+    const [messagesDataBase, setMessagesDataBase] = useState(typeof window !== "undefined" && (localStorage.getItem("messagesDataBase") ? JSON.parse(localStorage.getItem("messagesDataBase")) : null));
 
     !fbUser && fetch("http://localhost:5050/users")
         .then(res => res.json())
@@ -34,17 +34,17 @@ const UserState = ({ children }) => {
 
     const handleSetUser = (user) => {
         setUser(user);
-        localStorage.setItem("user", JSON.stringify(user));
+        typeof window !== "undefined" && localStorage.setItem("user", JSON.stringify(user));
     };
 
     const handleSetFbUser = (fbUser) => {
         setFbUser(fbUser);
-        localStorage.setItem("fbUser", JSON.stringify(fbUser));
+        typeof window !== "undefined" && localStorage.setItem("fbUser", JSON.stringify(fbUser));
     };
 
     const handleSetMessagesDataBase = (messagesDataBase) => {
         setMessagesDataBase(messagesDataBase);
-        localStorage.setItem("messagesDataBase", JSON.stringify(messagesDataBase));
+        typeof window !== "undefined" && localStorage.setItem("messagesDataBase", JSON.stringify(messagesDataBase));
 
         const messageBody = { fbEmail: fbUser.email, messagesDataBase: messagesDataBase }
         fetch("http://localhost:5050/messageData", {
