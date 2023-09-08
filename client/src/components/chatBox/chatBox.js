@@ -9,8 +9,24 @@ import ReplyBox from "../replyBox/replyBox";
 
 import styles from "./chatBox.module.scss";
 
-const Chat = ({ message }) => {
-  return <span className={styles.message}>{message.text}</span>;
+const Chat = ({ message, customer }) => {
+  const date = new Date(message?.timestamp);
+
+  const timeStamp = (
+    <>
+      {date.toLocaleDateString("en-US", options)}{" "}
+      {date.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}
+    </>
+  );
+  return (
+    <div className={styles.messages}>
+      {/* <Chat key={idx} message={message} /> */}
+      <span className={styles.message}>{message.text}</span>
+      <small className={styles.date}>
+        {customer?.name} {timeStamp}
+      </small>
+    </div>
+  );
 };
 
 const options = {
@@ -46,26 +62,14 @@ const ChatBox = ({ item }) => {
                   <div className={styles.avatar}>
                     <Avatar src={profile} />
                   </div>
-                  <div className={styles.messages}>
-                    {/* {message.map((message, i) => ( */}
-                    <Chat key={idx} message={message} />
-                    {/* ))} */}
-                    <small className={styles.date}>
-                      {customer.name} {timeStamp}
-                    </small>
-                  </div>
+                  <Chat key={idx} message={message} customer={customer} />
                 </div>
               </div>
             ) : (
               <div key={idx} className={styles.rightChats}>
                 <div className={styles.chatItem}>
                   <div className={styles.messages}>
-                    {/* {message.map((message, i) => ( */}
-                    <Chat key={idx} message={message} />
-                    {/* ))} */}
-                    <small className={styles.date}>
-                      {user && user.name} {timeStamp}
-                    </small>
+                    <Chat key={idx} message={message} customer={customer} />
                   </div>
                   <div className={styles.avatar}>
                     <Avatar src={user && user.picture} />
