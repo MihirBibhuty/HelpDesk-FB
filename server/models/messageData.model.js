@@ -23,7 +23,7 @@ const MessageTextSchema = new mongoose.Schema({
     },
     text: {
         type: String,
-        required: true,
+        // required: true,
     },
     timestamp: {
         type: String,
