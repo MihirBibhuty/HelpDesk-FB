@@ -8,9 +8,9 @@ import { AccountCircle, Menu } from "@material-ui/icons";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import styles from "./styles/messages.module.css";
 // import { useState } from "react";
-import { Item } from "@/components/item/item";
-import { Profile } from "@/components/profile/profile";
-import { ChatBox } from "@/components/chatBox/chatBox";
+import Item from "@/components/item/item";
+import Profile from "@/components/profile/profile";
+import ChatBox from "@/components/chatBox/chatBox";
 
 // import { withRouter } from "react-router-dom";
 import { useContext } from "react";
@@ -272,7 +272,7 @@ const Home = () => {
                     <RefreshIcon />
                 </div>
                 <div>
-                    {data?.map((item, idx) => (
+                    {data && data.map((item, idx) => (
                         <div
                             key={idx}
                             className={

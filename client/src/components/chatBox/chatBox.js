@@ -5,7 +5,7 @@ import { Avatar } from "@material-ui/core";
 import React from "react";
 import { useContext } from 'react';
 import UserContext from "@/context/UserContext";
-import { ReplyBox } from "../replyBox/replyBox";
+import ReplyBox from "../replyBox/replyBox";
 
 import styles from "./chatBox.module.scss";
 

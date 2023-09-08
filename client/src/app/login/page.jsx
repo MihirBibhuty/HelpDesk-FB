@@ -23,7 +23,7 @@ const Login = () => {
         signInWithEmailAndPassword(auth, input.email, input.password)
             .then((userCredentials) => {
                 console.log(userCredentials);
-                fetch('http://localhost:5050/users', {
+                fetch('https://helpdesk-fb.onrender.com/users', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email: userCredentials.user.email })

@@ -36,7 +36,7 @@ const Login = () => {
                 console.log(userObj);
                 handleSetFbUser(userObj);
 
-                fetch('http://localhost:5050/fbusers', {
+                fetch('https://helpdesk-fb.onrender.com/fbusers', {
                     method: "POST",
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(userObj),

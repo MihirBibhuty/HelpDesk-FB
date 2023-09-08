@@ -8,7 +8,7 @@ const UserState = ({ children }) => {
     const [fbUser, setFbUser] = useState(typeof window !== "undefined" && (localStorage.getItem("fbUser") ? JSON.parse(localStorage.getItem("fbUser")) : null));
     const [messagesDataBase, setMessagesDataBase] = useState(typeof window !== "undefined" && (localStorage.getItem("messagesDataBase") ? JSON.parse(localStorage.getItem("messagesDataBase")) : null));
 
-    !fbUser && fetch("http://localhost:5050/users")
+    !fbUser && fetch("https://helpdesk-fb.onrender.com/users")
         .then(res => res.json())
         .then(data => {
             data?.map(fbUser => {
@@ -20,7 +20,7 @@ const UserState = ({ children }) => {
         })
         .catch(err => console.log(err));
 
-    !messagesDataBase && fetch("http://localhost:5050/messageData")
+    !messagesDataBase && fetch("https://helpdesk-fb.onrender.com/messageData")
         .then(res => res.json())
         .then(data => {
             data?.map(messageData => {
@@ -47,7 +47,7 @@ const UserState = ({ children }) => {
         typeof window !== "undefined" && localStorage.setItem("messagesDataBase", JSON.stringify(messagesDataBase));
 
         const messageBody = { fbEmail: fbUser.email, messagesDataBase: messagesDataBase }
-        fetch("http://localhost:5050/messageData", {
+        fetch("https://helpdesk-fb.onrender.com/messageData", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

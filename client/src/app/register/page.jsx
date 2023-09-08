@@ -20,7 +20,7 @@ const Register = () => {
         console.log(user);
         createUserWithEmailAndPassword(auth, user.email, user.password)
             .then((userCredentials) => {
-                fetch('http://localhost:5050/users', {
+                fetch('https://helpdesk-fb.onrender.com/users', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email: userCredentials.user.email })
