@@ -10,7 +10,7 @@ export const metadata = {
   description: 'FB HelpDesk, your solution to all your Facebook chat problems.',
 }
 
-export default function RootLayout({ children }) {
+function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -21,3 +21,5 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+
+export default RootLayout;

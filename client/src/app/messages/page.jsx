@@ -272,7 +272,7 @@ const Home = () => {
                     <RefreshIcon />
                 </div>
                 <div>
-                    {data.map((item, idx) => (
+                    {data?.map((item, idx) => (
                         <div
                             key={idx}
                             className={

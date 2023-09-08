@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import UserContext from '@/context/UserContext';
 import { Button } from '@material-ui/core';
 
-export const ReplyBox = ({ customerName, customerId }) => {
+const ReplyBox = ({ customerName, customerId }) => {
     const { user, fbUser } = useContext(UserContext);
     const [input, setInput] = useState("");
 
@@ -50,7 +50,7 @@ export const ReplyBox = ({ customerName, customerId }) => {
                 alert('Error sending message:', error);
             });
 
-        
+
     }
 
     return (
@@ -62,3 +62,5 @@ export const ReplyBox = ({ customerName, customerId }) => {
         </>
     )
 }
+
+export default ReplyBox;

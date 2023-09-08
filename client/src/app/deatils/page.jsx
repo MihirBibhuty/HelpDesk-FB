@@ -24,7 +24,7 @@ const Login = () => {
                     <div className="text-lg">Integrated Account: <span className="font-bold">{fbUser?.name}</span></div>
                     <div className="text-lg">Integrated Page:&nbsp;
                         <span className="font-bold">
-                            {fbUser?.pages.length === 0 ? "No Pages Integrated" :
+                            {fbUser?.pages?.length === 0 ? "No Pages Integrated" :
                                 <span key={fbUser?.pages?.id}>{fbUser?.pages?.name}</span>
                             }
                         </span>

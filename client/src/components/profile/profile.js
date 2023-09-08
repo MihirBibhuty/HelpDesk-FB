@@ -23,7 +23,7 @@ const style = {
   p: 4,
 };
 
-export const Profile = ({ item: { id, customer, profile, email } }) => {
+const Profile = ({ item: { id, customer, profile, email } }) => {
   const nameParts = customer.name?.split(" ");
   const fname = nameParts[0];
   const lname = nameParts[1];
@@ -102,3 +102,5 @@ export const Profile = ({ item: { id, customer, profile, email } }) => {
     </>
   );
 };
+
+export default Profile;

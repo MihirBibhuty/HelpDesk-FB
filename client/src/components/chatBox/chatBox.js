@@ -18,7 +18,7 @@ const options = {
   day: "numeric",
 };
 
-export const ChatBox = ({ item }) => {
+const ChatBox = ({ item }) => {
   const { customer, profile, messages } = item;
   const { user, fbUser, handleSetUser } = useContext(UserContext);
 
@@ -82,3 +82,5 @@ export const ChatBox = ({ item }) => {
     </div>
   );
 };
+
+export default ChatBox;

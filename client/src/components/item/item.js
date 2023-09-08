@@ -3,7 +3,7 @@ import React from "react";
 
 import styles from "./item.module.scss";
 
-export const Item = ({
+const Item = ({
   item: { customer, type, intro },
   selected,
   onSelect,
@@ -33,3 +33,5 @@ export const Item = ({
     </div>
   );
 };
+
+export default Item;
