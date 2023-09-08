@@ -32,7 +32,7 @@ const Login = () => {
                 </div>
                 <div className="w-full">
                     <button className="w-full py-2 px-4 mt-4 bg-red-600 text-white rounded hover:bg-red-700" type="submit">Delete Integration</button>
-                    <Link href="/agentScreen"><button className="w-full py-2 px-4 mt-4 bg-blue-700 text-white rounded hover:bg-blue-900" type="submit">Reply To Messages</button></Link>
+                    <Link href="/messages"><button className="w-full py-2 px-4 mt-4 bg-blue-700 text-white rounded hover:bg-blue-900" type="submit">Reply To Messages</button></Link>
                 </div>
             </div>
         </div>

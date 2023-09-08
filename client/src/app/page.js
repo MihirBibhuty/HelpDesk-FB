@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import { auth, provider } from "../../firebaseConfig";
+import { auth, provider } from "@/firebaseConfig";
 
 const Register = () => {
   const { push } = useRouter();

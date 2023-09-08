@@ -72,7 +72,7 @@ const Login = () => {
                         <FacebookLogin
                             cssClass="w-full py-2 px-4 mt-4 bg-blue-700 text-white rounded hover:bg-blue-900"
                             textButton="Connect Page"
-                            appId='1695550040891756'
+                            appId='319900970528213'
                             // autoLoad={true}
                             fields='name,email,picture'
                             scope='pages_manage_metadata,pages_manage_engagement,pages_messaging,pages_read_engagement,pages_read_user_content,pages_show_list,pages_manage_cta'
