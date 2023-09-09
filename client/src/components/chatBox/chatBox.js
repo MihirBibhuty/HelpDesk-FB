@@ -49,41 +49,52 @@ const ChatBox = ({ item }) => {
     </>
   );
 
+
+  const [domLoaded, setDomLoaded] = useState(false);
+
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
+
   return (
-    <div className={styles.chatBox}>
-      <div className={styles.history}>
-        {messages
-          .slice()
-          .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
-          .map((message, idx) => {
-            return (message.from.name !== fbUser.pages.name) ? (
-              <div key={idx} className={styles.leftChats}>
-                <div className={styles.chatItem}>
-                  <div className={styles.avatar}>
-                    <Avatar src={profile} />
+    <>
+      {domLoaded &&
+        <div className={styles.chatBox}>
+          <div className={styles.history}>
+            {messages
+              .slice()
+              .sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp))
+              .map((message, idx) => {
+                return (message.from.name !== fbUser.pages.name) ? (
+                  <div key={idx} className={styles.leftChats}>
+                    <div className={styles.chatItem}>
+                      <div className={styles.avatar}>
+                        <Avatar src={profile} />
+                      </div>
+                      <Chat key={idx} message={message} customer={customer} />
+                    </div>
                   </div>
-                  <Chat key={idx} message={message} customer={customer} />
-                </div>
-              </div>
-            ) : (
-              <div key={idx} className={styles.rightChats}>
-                <div className={styles.chatItem}>
-                  <div className={styles.messages}>
-                    <Chat key={idx} message={message} customer={customer} />
+                ) : (
+                  <div key={idx} className={styles.rightChats}>
+                    <div className={styles.chatItem}>
+                      <div className={styles.messages}>
+                        <Chat key={idx} message={message} customer={customer} />
+                      </div>
+                      <div className={styles.avatar}>
+                        <Avatar src={user && user.picture} />
+                      </div>
+                    </div>
                   </div>
-                  <div className={styles.avatar}>
-                    <Avatar src={user && user.picture} />
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-      </div>
-      <div className={styles.input}>
-        {/* <input type="text" placeholder={`Message ${customer.name}`} /> */}
-        <ReplyBox customerName={customer.name} customerId={customer.id} />
-      </div>
-    </div>
+                );
+              })}
+          </div>
+          <div className={styles.input}>
+            {/* <input type="text" placeholder={`Message ${customer.name}`} /> */}
+            <ReplyBox customerName={customer.name} customerId={customer.id} />
+          </div>
+        </div>
+      }
+    </>
   );
 };
 
