@@ -125,8 +125,8 @@ const Home = () => {
             const fromName = msgData?.from?.name;
             const timestamp = msgData?.created_time;
 
-            const toId = msgData?.to?.data[0]?.id;
-            const toName = msgData?.to?.data[0]?.name;
+            const toId = msgData?.to?.data && msgData?.to?.data[0]?.id;
+            const toName = msgData?.to?.data && msgData?.to?.data[0]?.name;
 
             const customerId = toId != myId ? toId : fromId;
             const customerName = toName != myName ? toName : fromName;

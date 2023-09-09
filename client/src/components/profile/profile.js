@@ -25,8 +25,8 @@ const style = {
 
 const Profile = ({ item: { id, customer, profile, email } }) => {
   const nameParts = customer.name?.split(" ");
-  const fname = nameParts[0];
-  const lname = nameParts[1];
+  const fname = nameParts[0] || "";
+  const lname = nameParts[1] || "";
 
 
   const [open, setOpen] = React.useState(false);
