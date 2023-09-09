@@ -2,7 +2,7 @@
 
 import { Avatar } from "@material-ui/core";
 // import { useSession } from "next-auth/client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useContext } from 'react';
 import UserContext from "@/context/UserContext";
 import ReplyBox from "../replyBox/replyBox";
