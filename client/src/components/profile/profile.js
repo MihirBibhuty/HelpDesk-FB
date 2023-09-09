@@ -1,3 +1,5 @@
+"use client"
+
 import { Avatar, Button } from "@material-ui/core";
 import { AccountCircle } from "@material-ui/icons";
 import React from "react";
