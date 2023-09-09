@@ -58,9 +58,9 @@ const Register = () => {
           </form>
         </div>
         <div className="w-full">
-          <p className="text-blue-700">
+          <div className="text-blue-700">
             Already have an account? <Link href="/login" className="underline">Login</Link>
-          </p>
+          </div>
         </div>
       </div>
     </div>

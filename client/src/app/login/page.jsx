@@ -59,9 +59,9 @@ const Login = () => {
                     </form>
                 </div>
                 <div className="w-full">
-                    <p className="text-blue-700">
+                    <div className="text-blue-700">
                         New to MyApp? <Link href="/register" className="underline">Sign up</Link>
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -169,139 +169,150 @@ const Home = () => {
     }, [messageDatabase]);
     // *********************************************************
 
+
+    const [domLoaded, setDomLoaded] = useState(false);
+
+    useEffect(() => {
+        setDomLoaded(true);
+    }, []);
+
     return (
-        <div className={styles.container}>
-            <div className={styles.nav}>
-                <List>
-                    <ListItem>
-                        <ListItemIcon>
-                            <div className='my-4 py-2'>
-                                <Image
-                                    src={logo}
-                                    className='rounded-circle'
-                                    height={30}
-                                    width={30}
-                                    alt='logo'
-                                />
-                            </div>
+        <>
+            {domLoaded &&
+                <div className={styles.container}>
+                    <div className={styles.nav}>
+                        <List>
+                            <ListItem>
+                                <ListItemIcon>
+                                    <div className='my-4 py-2'>
+                                        <Image
+                                            src={logo}
+                                            className='rounded-circle'
+                                            height={30}
+                                            width={30}
+                                            alt='logo'
+                                        />
+                                    </div>
 
-                        </ListItemIcon>
-                    </ListItem>
-                    <ListItem className={styles.active}>
-                        <ListItemIcon>
-                            <div
-                                className='my-4 py-2'
-                                style={{
-                                    background: "white",
-                                    backgroundSize: "100%",
-                                    color: "#255190",
-                                    paddingLeft: "8px",
-                                }}
-                            >
-                                <i className='fa fa-inbox fa-lg'></i>
-                            </div>
-                        </ListItemIcon>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemIcon>
-                            <div
-                                className='my-4 py-2'
-                                style={{
-                                    backgroundSize: "100%",
-                                    color: "white",
-                                    paddingLeft: "8px",
-                                }}
-                            >
-                                <i className='fa fa-user fa-lg'></i>
-                            </div>
+                                </ListItemIcon>
+                            </ListItem>
+                            <ListItem className={styles.active}>
+                                <ListItemIcon>
+                                    <div
+                                        className='my-4 py-2'
+                                        style={{
+                                            background: "white",
+                                            backgroundSize: "100%",
+                                            color: "#255190",
+                                            paddingLeft: "8px",
+                                        }}
+                                    >
+                                        <i className='fa fa-inbox fa-lg'></i>
+                                    </div>
+                                </ListItemIcon>
+                            </ListItem>
+                            <ListItem>
+                                <ListItemIcon>
+                                    <div
+                                        className='my-4 py-2'
+                                        style={{
+                                            backgroundSize: "100%",
+                                            color: "white",
+                                            paddingLeft: "8px",
+                                        }}
+                                    >
+                                        <i className='fa fa-user fa-lg'></i>
+                                    </div>
 
-                            {/* <PeopleAltIcon className={styles.icon} /> */}
-                        </ListItemIcon>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemIcon>
-                            <div
-                                className='my-4 py-2'
-                                style={{
-                                    backgroundSize: "100%",
-                                    color: "white",
-                                    paddingLeft: "8px",
-                                }}
-                            >
-                                <i className='fa fa-line-chart fa-lg'></i>
-                            </div>
+                                    {/* <PeopleAltIcon className={styles.icon} /> */}
+                                </ListItemIcon>
+                            </ListItem>
+                            <ListItem>
+                                <ListItemIcon>
+                                    <div
+                                        className='my-4 py-2'
+                                        style={{
+                                            backgroundSize: "100%",
+                                            color: "white",
+                                            paddingLeft: "8px",
+                                        }}
+                                    >
+                                        <i className='fa fa-line-chart fa-lg'></i>
+                                    </div>
 
-                            {/* <BarChartIcon className={styles.icon} /> */}
-                        </ListItemIcon>
-                    </ListItem>
-                </List>
-                <List>
-                    {/* {session && ( */}
-                    <ListItem>
-                        <ListItemIcon
-                        // onClick={handleSignOut}
-                        >
-                            {!user && <AccountCircle className={styles.icon} />}
-                        </ListItemIcon>
-                    </ListItem>
-                    {/* )} */}
-                    {/* {!session && ( */}
-                    <ListItem>
-                        <ListItemIcon
-                        // onClick={handleSignIn}
-                        >
-                            {user && (
-                                <img
-                                    src={user.picture}
-                                    // style={{ marginTop: "100" }}
-                                    className='rounded-circle'
-                                    height='30px'
-                                    width='30px'
-                                    alt='profile'
-                                />
-                            )}
-                        </ListItemIcon>
-                    </ListItem>
-                    {/* )} */}
-                </List>
-            </div>
-            <div className={styles.list}>
-                <div className={styles.title}>
-                    <Menu />
-                    Conversations
-                    <RefreshIcon />
-                </div>
-                <div>
-                    {data && data.map((item, idx) => (
-                        <div
-                            key={idx}
-                            className={
-                                selected && item.customer.id === selected.customer.id ? styles.selected : ""
-                            }
-                        >
-                            <Item
-                                item={item}
-                                selected={selected && item.customer.id === selected.customer.id}
-                                onSelect={() => setSelected(item)}
-                            />
+                                    {/* <BarChartIcon className={styles.icon} /> */}
+                                </ListItemIcon>
+                            </ListItem>
+                        </List>
+                        <List>
+                            {/* {session && ( */}
+                            <ListItem>
+                                <ListItemIcon
+                                // onClick={handleSignOut}
+                                >
+                                    {!user && <AccountCircle className={styles.icon} />}
+                                </ListItemIcon>
+                            </ListItem>
+                            {/* )} */}
+                            {/* {!session && ( */}
+                            <ListItem>
+                                <ListItemIcon
+                                // onClick={handleSignIn}
+                                >
+                                    {user && (
+                                        <img
+                                            src={user.picture}
+                                            // style={{ marginTop: "100" }}
+                                            className='rounded-circle'
+                                            height='30px'
+                                            width='30px'
+                                            alt='profile'
+                                        />
+                                    )}
+                                </ListItemIcon>
+                            </ListItem>
+                            {/* )} */}
+                        </List>
+                    </div>
+                    <div className={styles.list}>
+                        <div className={styles.title}>
+                            <Menu />
+                            Conversations
+                            <RefreshIcon />
                         </div>
-                    ))}
+                        <div>
+                            {data && data.map((item, idx) => (
+                                <div
+                                    key={idx}
+                                    className={
+                                        selected && item.customer.id === selected.customer.id ? styles.selected : ""
+                                    }
+                                >
+                                    <Item
+                                        item={item}
+                                        selected={selected && item.customer.id === selected.customer.id}
+                                        onSelect={() => setSelected(item)}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className={styles.chatBox}>
+                        <div className={styles.title}>
+                            {selected && (
+                                <>
+                                    {selected?.customer?.name}
+                                </>
+                            )}
+                        </div>
+                        <div>{selected && <ChatBox item={selected} />}</div>
+                    </div>
+                    <div className={styles.infoBox}>
+                        {selected && <Profile item={selected} />}
+                    </div>
                 </div>
-            </div>
-            <div className={styles.chatBox}>
-                <div className={styles.title}>
-                    {selected && (
-                        <>
-                            {selected?.customer?.name}
-                        </>
-                    )}
-                </div>
-                <div>{selected && <ChatBox item={selected} />}</div>
-            </div>
-            <div className={styles.infoBox}>
-                {selected && <Profile item={selected} />}
-            </div>
-        </div>
+            }
+        </>
     );
 };
 
